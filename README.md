@@ -2,30 +2,28 @@
 
 <img src="https://raw.githubusercontent.com/motdotla/dotenv/master/dotenv.png" alt="dotenv" align="right" />
 
-Dotenv is a zero-dependency module that loads environment variables from a `.env` file into [`process.env`](https://nodejs.org/docs/latest/api/process.html#process_process_env). Storing configuration in the environment separate from code is based on [The Twelve-Factor App](http://12factor.net/config) methodology.
+Dotenv 是一个通过`.env`文件将环境变量设置到[`process.env`](https://nodejs.org/docs/latest/api/process.html#process_process_env)中去的模块，它不依赖其他任何模块，将配置存储在独立于代码的环境中我们是基于[The Twelve-Factor App](http://12factor.net/config)方法。
 
 [![BuildStatus](https://img.shields.io/travis/motdotla/dotenv/master.svg?style=flat-square)](https://travis-ci.org/motdotla/dotenv)
 [![NPM version](https://img.shields.io/npm/v/dotenv.svg?style=flat-square)](https://www.npmjs.com/package/dotenv)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 [![Coverage Status](https://img.shields.io/coveralls/motdotla/dotenv/master.svg?style=flat-square)](https://coveralls.io/github/motdotla/dotenv?branch=coverall-intergration)
 
-## Install
+## 安装 
 
 ```bash
 npm install dotenv --save
 ```
 
-## Usage
+## 使用 
 
-As early as possible in your application, require and configure dotenv.
+在你程序的最开始的地方，引入dotenv模块.
 
 ```javascript
 require('dotenv').config()
 ```
 
-Create a `.env` file in the root directory of your project. Add
-environment-specific variables on new lines in the form of `NAME=VALUE`.
-For example:
+在你的项目根目录中创建`.env`文件,另起一行像`NAME=VALUE`这样创建一个新的环境变量,例如：
 
 ```dosini
 DB_HOST=localhost
@@ -33,9 +31,9 @@ DB_USER=root
 DB_PASS=s1mpl3
 ```
 
-That's it.
+搞定。
 
-`process.env` now has the keys and values you defined in your `.env` file.
+现在`process.env`对象有了你在`.env`文件里定义的键值对。
 
 ```javascript
 var db = require('db')
@@ -46,7 +44,7 @@ db.connect({
 })
 ```
 
-### Preload
+### 预加载
 
 If you are using iojs-v1.6.0 or later, you can use the `--require` (`-r`) command line option to preload dotenv. By doing this, you do not need to require and load dotenv in your application code.
 
